@@ -1,0 +1,74 @@
+<div class="header">
+  <h1 class="page-header">
+    {{isUpdate ? "Card Details": "Card Details"}}
+  </h1>
+</div>
+<div id="page-inner">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Advanced Tables -->
+      <div class="card">
+        <div class="card-content">
+         
+          <form style="font-size: 13px;" *ngIf="!isSuccessful" name="form" (ngSubmit)="onSubmit()"
+            #f="ngForm" novalidate>
+
+            <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+              Error:<br />{{ errorMessage }}
+            </div>
+            <div class="alert alert-success" *ngIf="isSuccessful">
+              {{isUpdate ? "Asesor Actualizado": "Asesor Agregado"}}
+            </div>
+
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Card Number</label>
+              <div class="col-sm-5">
+                <input type="text" class="form-control" name="cardNumber" [(ngModel)]="form.cardNumber"
+                  placeholder="Enter Card Number" #cardNumber="ngModel" [value]="creditCard.cardNumber" required />
+              </div>
+              <div class="alert-danger col-sm-3" *ngIf="f.submitted && cardNumber.invalid">
+                <div *ngIf="cardNumber.errors.required">Enter Card Number</div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Card Holder's Name</label>
+              <div class="col-sm-5">
+                <input type="text" class="form-control" name="cardHolder" [(ngModel)]="form.cardHolder"
+                  placeholder="Enter Card Holder's Name" #cardHolder="ngModel" [value]="creditCard.cardHolder" required />
+              </div>
+              <div class="alert-danger col-sm-3" *ngIf="f.submitted && cardHolder.invalid">
+                <div *ngIf="cardHolder.errors.required">Enter Card Holder Name</div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Expiration</label>
+              <div class="col-sm-5">
+                <input type="text" class="form-control" name="expiration" [(ngModel)]="form.expiration"
+                  placeholder="Enter Expiration" #expiration="ngModel" [value]="creditCard.expiration" required />
+              </div>
+              <div class="alert-danger col-sm-3" *ngIf="f.submitted && expiration.invalid">
+                <div *ngIf="expiration.errors.required">Enter Expiration</div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">CVV</label>
+              <div class="col-sm-5">
+                <input type="text" class="form-control" name="cvv" [(ngModel)]="form.cvv"
+                  placeholder="Enter CVV" #cvv="ngModel" [value]="creditCard.cvv" required />
+              </div>
+              <div class="alert-danger col-sm-3" *ngIf="f.submitted && cvv.invalid">
+                <div *ngIf="cvv.errors.required">Enter CVV</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="in Email3" class="col-sm-2 col-form-label">&nbsp;</label>
+              <button class="btn btn-primary btn-block col-sm-5">Confirm Payment</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="header">
+    <h1 class="page-header">
+      Confirm Your Order Return
+    </h1>
+    <h2 class="page-header">The process details of your Return Order are as follows</h2>
+  </div>
+  <div id="page-inner">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Advanced Tables -->
+        <div class="card">
+          <div class="card-content">
+            <div class="table-responsive">
+              <table class="table table-striped table-hover" style="font-size: 13px;">
+               <tbody>
+                  <tr >
+                    <td><b>Order Request ID</b></td>
+                    <td>:</td>
+                    <td><b>{{requestId}}</b></td>
+                  </tr>
+                  <tr >
+                    <td>User ID</td>
+                    <td>:</td>
+                    <td>{{userID}}</td>
+                  </tr>
+                  <tr >
+                    <td>Packaging and Delivery Charge</td>
+                    <td>:</td>
+                    <td>{{packagingAndDeliveryCharge}}</td>
+                  </tr>
+                  <tr >
+                    <td>Processing CHarge</td>
+                    <td>:</td>
+                    <td>{{processingCharge}}</td>
+                  </tr>
+                  <tr >
+                    <td>Total Charge</td>
+                    <td>:</td>
+                    <td>{{totalCharge}}</td>
+                  </tr>
+                  <tr >
+                    <td><b>Estimated Delivery Date</b>></td>
+                    <td>:</td>
+                    <td><b>{{dateOfDelivery}}</b></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+    <div class="row mb-3 px-3"> 
+        <div class="text-center">
+        <button type="submit" class="btn btn-primary text-center" (click)="loadPaymentPage()">Proceed For Payments</button>
+        </div>
+      </div>
+  </div>

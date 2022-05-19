@@ -1,0 +1,112 @@
+<div class="header">
+  <h1 class="page-header">
+    {{isUpdate ? "Update Order Details": "Order Details"}}
+  </h1>
+</div>
+<div id="page-inner">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Advanced Tables -->
+      <div class="card">
+        <div class="card-content">
+          <h2 class="h2_form">Order Management </h2>
+          <form style="font-size: 13px;" *ngIf="!isSuccessful" name="form" (ngSubmit)="onSubmit()"
+            #f="ngForm" novalidate>
+
+            <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+              Error:<br />{{ errorMessage }}
+            </div>
+            <div class="alert alert-success" *ngIf="isSuccessful">
+              {{isUpdate ? "Asesor Actualizado": "Asesor Agregado"}}
+            </div>
+
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">First Name</label>
+              <div class="col-sm-5">
+                <input type="text" class="form-control" name="userName" [(ngModel)]="form.userName"
+                  placeholder="Enter User Name" #userName="ngModel" [value]="returnOrder.userName" required />
+              </div>
+              <div class="alert-danger col-sm-3" *ngIf="f.submitted && userName.invalid">
+                <div *ngIf="userName.errors.required">Enter Product</div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Last Name</label>
+              <div class="col-sm-5">
+                <input type="text" class="form-control" name="lastName" [(ngModel)]="form.lastName"
+                  placeholder="Enter Last Name" #lastName="ngModel" [value]="returnOrder.lastName" required />
+              </div>
+              <div class="alert-danger col-sm-3" *ngIf="f.submitted && lastName.invalid">
+                <div *ngIf="lastName.errors.required">Enter Last Name</div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Contact Number</label>
+              <div class="col-sm-5">
+                <input type="text" class="form-control" name="contactNumber" [(ngModel)]="form.contactNumber"
+                  placeholder="Enter Contact Number" #contactNumber="ngModel" [value]="returnOrder.contactNumber" required />
+              </div>
+              <div class="alert-danger col-sm-3" *ngIf="f.submitted && contactNumber.invalid">
+                <div *ngIf="contactNumber.errors.required">Enter Contact Number</div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Telephone Number</label>
+              <div class="col-sm-5">
+                <input type="text" class="form-control" name="telephoneNumber" [(ngModel)]="form.telephoneNumber"
+                  placeholder="Enter Telephone Number" #telephoneNumber="ngModel" [value]="returnOrder.telephoneNumber" required />
+              </div>
+              <div class="alert-danger col-sm-3" *ngIf="f.submitted && telephoneNumber.invalid">
+                <div *ngIf="telephoneNumber.errors.required">Enter Telephone Number</div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Component Type</label>
+              <div class="col-sm-5">
+                <select style="height: 40px;" type="text" class="form-control" name="componentType"
+                  [(ngModel)]="form.componentType" #componentType="ngModel" [value]="returnOrder.componentType"
+                  required>
+                  <option value="accessory" selected>Accessory Component</option>
+                    <option value="integral">Integral Component</option>
+                </select>
+              </div>
+              <div class="alert-danger col-sm-3" *ngIf="f.submitted && componentType.invalid">
+                <div *ngIf="componentType.errors.required">Select Component Type</div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Component Name</label>
+              <div class="col-sm-5">
+                <input type="text" class="form-control" name="componentName" [(ngModel)]="form.componentName"
+                  placeholder="Enter Component Name" #componentName="ngModel" [value]="returnOrder.componentName" required />
+              </div>
+              <div class="alert-danger col-sm-3" *ngIf="f.submitted && componentName.invalid">
+                <div *ngIf="componentName.errors.required">Enter Component Name</div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Quantity</label>
+              <div class="col-sm-5">
+                <input type="text" class="form-control" name="quantityOfDefective" [(ngModel)]="form.quantityOfDefective"
+                  placeholder="Enter Quantity" #quantityOfDefective="ngModel" [value]="returnOrder.quantityOfDefective" required />
+              </div>
+              <div class="alert-danger col-sm-3" *ngIf="f.submitted && quantityOfDefective.invalid">
+                <div *ngIf="quantityOfDefective.errors.required">Enter Quantity</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">&nbsp;</label>
+              <button class="btn btn-primary btn-block col-sm-5">{{isUpdate ? "Update Details": "Save Details"}}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

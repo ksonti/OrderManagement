@@ -1,0 +1,68 @@
+<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+  <div class="card card0 border-0">
+    <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
+          {{ errorMessage }}
+        </div>
+      </div>
+      <div class="row d-flex">
+        <div class="col-lg-6">
+          <div class="card1 pb-5">
+            <div class="row mylogo"><span style="background-color: #f48e36; color: #FFFFFF; padding: 10px;">Order</span> <span style="padding: 10px;">Management</span> </div>
+            <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> 
+              <img src="assets/images/login.jpg" style="width: 500px; height: 270px;" class="image">
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" style="margin-top:55px">
+          <div class="card2 card border-0 px-4 py-5">
+            <div class="row mb-4 px-3"  >
+              <h2 class="mb-0 mr-4 mt-2">Order Management - Admin Login</h2>
+            </div>
+            <div class="row px-3 mb-4">
+              <div class="line"></div> <small class="or text-center">Or</small>
+              <div class="line"></div>
+            </div>
+              <div class="row px-3">
+                <label class="mb-1">
+                  <h6 class="mb-0 text-sm">Username</h6>
+                </label>
+                <input class="mb-4" type="text" placeholder="Enter Your Username" class="form-control" name="username"
+                  [(ngModel)]="form.username" required #username="ngModel" />
+                <div class="alert alert-danger" role="alert" *ngIf="f.submitted && username.invalid">
+                  Username is required
+                </div>
+              </div>
+              <div class="row px-3">
+                  <label class="mb-1">
+                    <h6 class="mb-0 text-sm">Password</h6>
+                  </label>
+                  <input class="mb-4" placeholder="Enter Your Password" type="password" class="form-control"
+                    name="password" [(ngModel)]="form.password" required minlength="6" #password="ngModel" />
+                  <div class="alert alert-danger" role="alert" *ngIf="f.submitted && password.invalid">
+                    <div *ngIf="password.errors.required">Password is required</div>
+                    <div *ngIf="password.errors.minlength">
+                      Password must be at least 6 characters
+                    </div>
+                  </div>
+              </div>
+              <div class="row mb-3 px-3"> 
+                <button type="submit" class="btn btn-blue text-center">Login</button> 
+              </div>
+          </div>
+        </div>
+       
+      </div>
+      <div class="alert alert-success" *ngIf="isLoggedIn">
+        Logged in
+      </div>
+    </form>
+    <div class="bg-blue py-4">
+      <div class="row px-3" style="font-size: 15px;"> <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2019. All rights reserved.</small>
+        <div class="social-contact ml-4 ml-sm-auto"> <span class="fa fa-facebook mr-4 text-sm"></span> <span
+            class="fa fa-google-plus mr-4 text-sm"></span> <span class="fa fa-linkedin mr-4 text-sm"></span> <span
+            class="fa fa-twitter mr-4 mr-sm-5 text-sm"></span> </div>
+      </div>
+    </div>
+  </div>
